@@ -41,7 +41,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-#include <stdbool.h>
+
 #include "cobyla.h"
 
 /* SGJ, 2008: modified COBYLA code to take explicit account of bound
@@ -64,15 +64,15 @@
 
 #define ZERO_CONSTANT 0
 
-inline bool check_if_zero(const double var)
+unsigned int check_if_zero(const double var)
 {
     if (fabs(var) <= ZERO_CONSTANT)
     {
-        return true;
+        return 1;
     }
     else
     {
-        return false;
+        return 0;
     }
 
 }
